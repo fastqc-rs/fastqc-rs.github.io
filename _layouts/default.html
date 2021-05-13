@@ -1,6 +1,4 @@
-
 <!DOCTYPE html>
-{% set sub_pages = ["installation", "usage"] %}
 <html lang="{{ site.lang | default: "en-US" }}">
 <head>
     <meta charset="UTF-8">
@@ -32,9 +30,8 @@
         <p class="view"><a href="{{ site.github.owner_url }}">View My GitHub Profile</a></p>
         {% endif %}
 
-        {% for sub_page in sub_pages %}
-        <h4><a href="{{ sub_page | absolute_url }}">{{ sub_page }}</a></h4>
-        {% endfor %}
+        <h4><a href="{{ "/installation.html" | absolute_url }}">Installation</a></h4>
+        <h4><a href="{{ "/usage.html" | absolute_url }}">Usage</a></h4>
 
         {% if site.show_downloads %}
         <ul class="downloads">
