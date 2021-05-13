@@ -1,4 +1,4 @@
 theme: jekyll-theme-minimal
 title: fastqc-rs
 description: A quality control tool for FASTQ files written in rust.
-logo: https://raw.githubusercontent.com/fxwiegand/fastqc-rs/gh-pages/img/fastqc-rs-ferris.png
+logo: https://raw.githubusercontent.com/fastqc-rs/fastqc-rs.github.io/main/img/fastqc-rs-ferris.png
