@@ -1,37 +1,57 @@
-## Welcome to GitHub Pages
+# fastqc-rs
 
-You can use the [editor on GitHub](https://github.com/fxwiegand/fastqc-rs/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+![Rust](https://github.com/fxwiegand/fastqc-rs/workflows/Rust/badge.svg)
+[![Crates.io](https://img.shields.io/crates/d/fastqc-rs.svg?label=crates.io%20downloads)](https://crates.io/crates/fastqc-rs)
+[![Crates.io](https://img.shields.io/crates/v/fastqc-rs.svg)](https://crates.io/crates/fastqc-rs)
+[![Crates.io](https://img.shields.io/crates/l/fastqc-rs.svg)](https://crates.io/crates/fastqc-rs)
+[![install with bioconda](https://img.shields.io/badge/install%20with-bioconda-brightgreen.svg?style=flat)](http://bioconda.github.io/recipes/fastqc-rs/README.html)
+[![Bioconda downloads](https://img.shields.io/conda/dn/bioconda/fastqc-rs?label=bioconda%20downloads)](https://anaconda.org/bioconda/fastqc-rs)
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+A fast quality control tool for FASTQ files written in rust inspired by [fastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/). Results are written to `stdout` as a self containing html report with visualizations for all statistics. Summary files for usage with [MultiQC](https://multiqc.info) can also be generated.
 
-### Markdown
+Available statistics are:
+- Read length
+- Sequence quality score
+- Sequence quality per base
+- Sequence content per base
+- k-mer content
+- GC content
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+For a detailed list of changes, take a look at the [CHANGELOG](CHANGELOG.md).
 
-```markdown
-Syntax highlighted code block
+## Installation
 
-# Header 1
-## Header 2
-### Header 3
+There are multiple ways to install fastqc-rs:
 
-- Bulleted
-- List
+#### Bioconda
 
-1. Numbered
-2. List
+fastqc-rs is available via [Bioconda](https://bioconda.github.io).
+With Bioconda set up, installation is as easy as
 
-**Bold** and _Italic_ and `Code` text
+    conda install fastqc-rs
 
-[Link](url) and ![Image](src)
+#### Cargo
+
+If the [Rust](https://www.rust-lang.org/tools/install) compiler and associated [Cargo](https://github.com/rust-lang/cargo/) are installed, fastqc-rs can be installed via
+
+    cargo install fastqc-rs
+
+#### Source
+
+Download the source code and within the root directory of source run
+
+    cargo install
+
+## Usage
+
+```
+fqc -q path/to/my_sequence.fastq > report.html
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+Arguments: 
 
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/fxwiegand/fastqc-rs/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+| Parameter                 | Default       | Description   |	
+| :------------------------ |:-------------:| :-------------|
+| -q --fastq 	       |	-           |The path to the FASTQ file to use
+| -k          | 5           |The length k of k-mers for k-mer counting
+| -s --summary          | -           |Creates an output file for usage with [MultiQC](https://multiqc.info) under the given path
