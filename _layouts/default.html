@@ -22,16 +22,10 @@
 
         <p>{{ site.description | default: site.github.project_tagline }}</p>
 
-        {% if site.github.is_project_page %}
-        <p class="view"><a href="{{ site.github.repository_url }}">View the Project on GitHub <small>{{ site.github.repository_nwo }}</small></a></p>
-        {% endif %}
+        <h3><a href="{{ "/installation.html" | absolute_url }}">Installation</a></h3>
+        <h3><a href="{{ "/usage.html" | absolute_url }}">Usage</a></h3>
 
-        {% if site.github.is_user_page %}
-        <p class="view"><a href="{{ site.github.owner_url }}">View My GitHub Profile</a></p>
-        {% endif %}
-
-        <h4><a href="{{ "/installation.html" | absolute_url }}">Installation</a></h4>
-        <h4><a href="{{ "/usage.html" | absolute_url }}">Usage</a></h4>
+        <p class="view"><a href="https://github.com/fastqc-rs/fastqc-rs">View the Project on GitHub <small>fastqc-rs/fastqc-rs</small></a></p>
 
         {% if site.show_downloads %}
         <ul class="downloads">
