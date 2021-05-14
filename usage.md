@@ -1,5 +1,7 @@
 ## Usage
 
+To generate interactive html reports with fastqc-rs, simply pass the path to your fastq file with `-q` and capture the generated html file from `stdout`.
+
 ```
 fqc -q path/to/my_sequence.fastq > report.html
 ```
